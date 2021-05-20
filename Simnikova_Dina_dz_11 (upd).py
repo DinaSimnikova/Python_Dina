@@ -105,14 +105,10 @@ class Storage:
     def work(self):
         print(f'{self.name} is working')
 
-    def add_to(self, equipment):
-            ''' добавляем в словарь обьект по его названию, в значении
-            будет список экземпляров этого оборудования'''
+    def add_to(self, equipment)
             self._dict.setdefault(equipment.group_name(), []).append(equipment)
 
     def extract(self, name):
-            ''' извлекаем из значения обьект по названию группы.
-            дальше можно расширить поиск по серии, марки или еще чему либо'''
             if self._dict[name]:
                 self._dict.setdefault(name).pop(0)
 
@@ -152,14 +148,14 @@ class Xerox(Equipment):
         self.xerox_dict = []
 
 sklad = Storage('New_Storage')
-# создаем объект и добавляем
+
 scaner = Scan('Sony', '567', 45600)
 sklad.add_to(scaner)
 printer = Printer('HP', '689', 34500, 2018)
 sklad.add_to(printer)
-# выводим склад
+
 print(sklad._dict)
-# забираем с склада и выводим склад
+
 sklad.extract('Printer')
 print()
 print(sklad._dict)
